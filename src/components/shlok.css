@@ -2,7 +2,7 @@ h1, h2 {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Shlok Container */
+/* ShlokBanner Container */
 .single-shlok-container {
     padding: 50px 0;
 }
@@ -20,7 +20,7 @@ h1, h2 {
     margin-bottom: 40px;
 }
 
-/* Shlok Content Styling */
+/* ShlokBanner Content Styling */
 .shlok-content {
     display: flex;
     flex-direction: column;

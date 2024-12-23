@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import dashboard from "/Dashboard.svg";
 import contactImage from "/Emergencycircle.svg"
 import logo from "/Logo.svg"
+import ShlokBanner from "./components/ShlokBanner.jsx";
 
 function App() {
 
@@ -54,6 +55,11 @@ function App() {
                   <div></div>
               </div>
 
+              <ShlokBanner/>
+
+              <div className={"line-div"}>
+                  <div></div>
+              </div>
 
               {/*/!* ---Service Container--- *!/*/}
               {/*<div className={"home-service-container"}>*/}

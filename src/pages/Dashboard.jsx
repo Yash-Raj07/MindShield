@@ -51,7 +51,7 @@ const Dashboard = () => {
             {/*)}*/}
 
             {/*<section className="shlok-container">*/}
-            {/*    /!* Only render the Shlok content if it is available *!/*/}
+            {/*    /!* Only render the ShlokBanner content if it is available *!/*/}
             {/*    {shlok ? (*/}
             {/*        <Link to={`/shlok/${shlok.id}`}>*/}
             {/*            <p>{shlok.englishShlok}</p>*/}
