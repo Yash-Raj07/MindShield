@@ -10,6 +10,7 @@ import Accident from "/Accident.svg";
 import Disaster from "/Disaster.svg";
 import Violence from "/Violence.svg";
 import Rescue from "/Rescue.svg";
+import ShlokBanner from "../components/ShlokBanner.jsx";
 
 
 const Dashboard = () => {
@@ -157,6 +158,9 @@ const Dashboard = () => {
                         <EmergencyCard image={Rescue} name={"Rescue"} color={"#F5E8A6"}/>
                     </div>
                 </div>
+
+
+                <ShlokBanner/>
 
             </section>
         </>
