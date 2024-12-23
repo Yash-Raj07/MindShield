@@ -2,10 +2,12 @@ import './login.css';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { register } from '../services/AuthService.jsx';
-import {toast} from "sonner";
+import { toast } from "sonner";
 
 const RegisterForm = () => {
+    const navigate = useNavigate();
 
+    // State for form data
     const [data, setData] = useState({
         name: '',
         email: '',
@@ -13,10 +15,12 @@ const RegisterForm = () => {
         confirmPassword: '',
     });
 
-    const navigate = useNavigate();
-    const [error, setError] = useState({
-        errors: {},
-        isError: false
+    // State for form errors
+    const [errors, setErrors] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
     });
 
     // Handle input changes
@@ -25,48 +29,70 @@ const RegisterForm = () => {
             ...prevState,
             [field]: value,
         }));
+
+        // Clear the error for the specific field when the user starts typing
+        setErrors((prevState) => ({
+            ...prevState,
+            [field]: '',
+        }));
     };
 
+    // Form validation
+    const validateForm = () => {
+        const validationErrors = {};
+        let isValid = true;
+
+        if (!data.name) {
+            validationErrors.name = "Name is required.";
+            isValid = false;
+        }
+
+        if (!data.email) {
+            validationErrors.email = "Email is required.";
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+            validationErrors.email = "Please enter a valid email address.";
+            isValid = false;
+        }
+
+        if (!data.password) {
+            validationErrors.password = "Password is required.";
+            isValid = false;
+        } else if (data.password.length < 6) {
+            validationErrors.password = "Password must be at least 6 characters long.";
+            isValid = false;
+        }
+
+        if (!data.confirmPassword) {
+            validationErrors.confirmPassword = "Confirm Password is required.";
+            isValid = false;
+        } else if (data.password !== data.confirmPassword) {
+            validationErrors.confirmPassword = "Passwords do not match.";
+            isValid = false;
+        }
+
+        setErrors(validationErrors);
+        return isValid;
+    };
+
+    // Handle form submission
     const submitForm = (event) => {
         event.preventDefault();
 
-        let validationErrors = {};
-        let hasError = false;
-
-        if (!data.name) {
-            toast.error("Name is required");
-            validationErrors.name = "Name is required";
-            hasError = true;
+        if (validateForm()) {
+            // If form is valid, call the register service
+            register(data)
+                .then(() => {
+                    toast.success("Registered successfully!");
+                    navigate("/login");
+                })
+                .catch((err) => {
+                    console.error("Error during registration: ", err);
+                    toast.error("An error occurred during registration. Please try again.");
+                });
+        } else {
+            toast.error("Please fix the errors in the form.");
         }
-        if (!data.email) {
-            toast.error("Email is required");
-            validationErrors.email = "Email is required";
-            hasError = true;
-        }
-        if (!data.password) {
-            toast.error("Password is required");
-            validationErrors.password = "Password is required";
-            hasError = true;
-        }
-        if (data.password !== data.confirmPassword) {
-            toast.error("Please make sure your passwords match");
-            validationErrors.confirmPassword = "Please make sure your passwords match";
-            hasError = true;
-        }
-
-        if (hasError) {
-            setError({ errors: validationErrors, isError: true });
-            console.log("Error: ", validationErrors);
-            return;
-        }
-
-        // Call the register service and handle response
-        register(data).then(() => {
-            toast.success("Register Successfully");
-            navigate("/login");
-        }).catch((err) => {
-            console.error("Error during registration: ", err);
-        });
     };
 
     return (
@@ -75,6 +101,7 @@ const RegisterForm = () => {
             <p>Enter your details below to create your account</p>
 
             <form onSubmit={submitForm}>
+                {/* Name Input */}
                 <div className="form-group">
                     <label htmlFor="name">Full Name</label>
                     <input
@@ -84,23 +111,27 @@ const RegisterForm = () => {
                         value={data.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         placeholder="Enter your full name"
-                        required
+                        className={errors.name ? 'input-error' : ''}
                     />
+                    {errors.name && <span className="error-text">{errors.name}</span>}
                 </div>
 
+                {/* Email Input */}
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input
-                        type="email"
+                        type="text"
                         id="email"
                         name="email"
                         value={data.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         placeholder="Enter your email"
-                        required
+                        className={errors.email ? 'input-error' : ''}
                     />
+                    {errors.email && <span className="error-text">{errors.email}</span>}
                 </div>
 
+                {/* Password Input */}
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
                     <input
@@ -110,10 +141,12 @@ const RegisterForm = () => {
                         value={data.password}
                         onChange={(e) => handleInputChange('password', e.target.value)}
                         placeholder="Enter your password"
-                        required
+                        className={errors.password ? 'input-error' : ''}
                     />
+                    {errors.password && <span className="error-text">{errors.password}</span>}
                 </div>
 
+                {/* Confirm Password Input */}
                 <div className="form-group">
                     <label htmlFor="confirm-password">Confirm Password</label>
                     <input
@@ -123,8 +156,9 @@ const RegisterForm = () => {
                         value={data.confirmPassword}
                         onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
                         placeholder="Re-enter your password"
-                        required
+                        className={errors.confirmPassword ? 'input-error' : ''}
                     />
+                    {errors.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
                 </div>
 
                 <button type="submit" className="login-button">

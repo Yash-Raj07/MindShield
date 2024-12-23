@@ -33,10 +33,11 @@ const Profile = () => {
                 <div className="profile-card">
                     <h1>Your Profile</h1>
                     <img
-                        src={image}
+                        src={user?.profileImage || "https://randomuser.me/api/portraits/men/75.jpg"}
                         alt="Profile"
                         className="profile-image"
                     />
+
                     <h1 className="profile-name">{user.name}</h1>
                     <p className="profile-email">{user.email}</p>
 

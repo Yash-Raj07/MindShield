@@ -87,3 +87,14 @@ input:focus {
 .signup-text a:hover {
     text-decoration: underline;
 }
+
+
+.input-error {
+    border: 1px solid red;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

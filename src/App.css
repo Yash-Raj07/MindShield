@@ -29,6 +29,7 @@
 }
 .left-home-hero-container > p {
   font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 .left-home-hero-container > p > span{
   display: inline-block;
@@ -36,16 +37,16 @@
   padding-top: 10px;
 }
 
-.left-home-hero-container > div > button {
+.left-home-hero-container > div > .button {
   padding: 0.8rem 3rem;
   color: #F5F5FA;
   background: linear-gradient( #FFAD59 0%, #FF7E7B 80%);
   border-radius: 0.5rem;
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 0.5rem auto;
 }
-.left-home-hero-container > div > button:hover {
+.left-home-hero-container > div > .button:hover {
+  text-decoration: none;
   background: #FF8852;
   cursor: pointer;
 }

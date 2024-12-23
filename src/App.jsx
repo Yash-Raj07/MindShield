@@ -39,12 +39,7 @@ function App() {
                       <h1>ShieldMe</h1>
                       <p>“ Feel Safe, Anywhere, Anytime <span className={""}>“</span></p>
                       <div>
-                          <button className="button"
-                                  onClick={
-                                      () =>
-                                          setUser(user)
-                                  }>Register
-                          </button>
+                          <Link className="button" to={"/register"}>Register</Link>
                       </div>
 
                   </div>

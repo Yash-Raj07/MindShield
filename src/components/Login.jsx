@@ -14,10 +14,10 @@ const LoginForm = () => {
         password: '',
     });
 
-    // Track focus for inputs
-    const [focused, setFocused] = useState({
-        email: false,
-        password: false,
+    // State for form errors
+    const [errors, setErrors] = useState({
+        email: '',
+        password: '',
     });
 
     // Handle input changes
@@ -26,22 +26,39 @@ const LoginForm = () => {
             ...prevState,
             [field]: value,
         }));
+
+        // Clear the error for the specific field when user starts typing
+        setErrors((prevState) => ({
+            ...prevState,
+            [field]: '',
+        }));
     };
 
-    // Handle focus and blur for inputs
-    const handleFocus = (field) => {
-        setFocused((prevState) => ({ ...prevState, [field]: true }));
-    };
+    // Validate form fields
+    const validate = () => {
+        const newErrors = {};
 
-    const handleBlur = (field) => {
-        setFocused((prevState) => ({ ...prevState, [field]: false }));
+        if (!data.email) {
+            newErrors.email = 'Email is required.';
+        } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+            newErrors.email = 'Please enter a valid email address.';
+        }
+
+        if (!data.password) {
+            newErrors.password = 'Password is required.';
+        } else if (data.password.length < 6) {
+            newErrors.password = 'Password must be at least 6 characters long.';
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0; // Form is valid if there are no errors
     };
 
     // Handle form submission
     const handleLogin = (e) => {
         e.preventDefault();
 
-        if (data.email !== '' && data.password !== '') {
+        if (validate()) {
             login(data)
                 .then((resp) => {
                     const user = {
@@ -57,8 +74,6 @@ const LoginForm = () => {
                     console.error('Error during login:', err);
                     toast.error('Invalid credentials. Please try again.');
                 });
-        } else {
-            toast.error('Please fill in all the fields.');
         }
     };
 
@@ -67,21 +82,20 @@ const LoginForm = () => {
             <h2>Login to Your Account</h2>
             <p>Enter your email and password below to login to your account</p>
             <form onSubmit={handleLogin}>
+
                 {/* Email Input */}
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input
-                        type="email"
+                        type="text"
                         id="email"
                         name="email"
                         placeholder="Enter your email"
                         value={data.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        onFocus={() => handleFocus('email')}
-                        onBlur={() => handleBlur('email')}
-                        className={focused.email ? 'input-focused' : ''}
-                        required
+                        className={errors.email ? 'input-error' : ''}
                     />
+                    {errors.email && <span className="error-text">{errors.email}</span>}
                 </div>
 
                 {/* Password Input */}
@@ -94,11 +108,9 @@ const LoginForm = () => {
                         placeholder="Enter your password"
                         value={data.password}
                         onChange={(e) => handleInputChange('password', e.target.value)}
-                        onFocus={() => handleFocus('password')}
-                        onBlur={() => handleBlur('password')}
-                        className={focused.password ? 'input-focused' : ''}
-                        required
+                        className={errors.password ? 'input-error' : ''}
                     />
+                    {errors.password && <span className="error-text">{errors.password}</span>}
                 </div>
 
                 {/* Login Button */}

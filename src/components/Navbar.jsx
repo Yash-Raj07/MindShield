@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
     const [user, setUser] = useState(null); // State to store logged-in user
-    const navigate = useNavigate();
 
     useEffect(() => {
         const userCookie = Cookies.get("user");
@@ -21,7 +20,7 @@ const Navbar = () => {
             <div className="navbar-container">
                 <nav className="navbar">
                     <Link className="heading" to="/">
-                        <h3 className="title">MindShield</h3>
+                        <h3 className="title">ShieldMe</h3>
                     </Link>
 
                     {!user && (
