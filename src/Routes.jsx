@@ -17,6 +17,8 @@ const SingleJournal = lazy(() => import("./pages/Journal/SingleJournal.jsx"));
 const App = lazy(() => import('./App.jsx'));
 const ErrorPage = lazy(() => import('./components/ErrorPage.jsx'));
 const Login = lazy(() => import("./components/Login.jsx"));
+const ForgotPassword = lazy(() => import("./components/forgotPassword.jsx"));
+const ResetPassword = lazy(() => import("./components/resetPassword.jsx"));
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -33,7 +35,8 @@ const router = createBrowserRouter(
             <Route path="/journals" element={<Journal />} />
             <Route path="/journal/:journalId" element={<SingleJournal />} /> {/* Dynamic route for single journal */}
             <Route path="/shlok/:shlokId" element={<Slok />} />
-
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/resetPassword/:token" element={<ResetPassword />} />
 
         </Route>
     )

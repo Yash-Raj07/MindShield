@@ -112,12 +112,17 @@ const LoginForm = () => {
                     />
                     {errors.password && <span className="error-text">{errors.password}</span>}
                 </div>
+                <p className="signup-text">
+                Forgot password? <Link to="/forgotPassword">Reset Password</Link>
+                </p>
 
                 {/* Login Button */}
                 <button type="submit" className="login-button">
                     Login
                 </button>
             </form>
+
+            
 
             {/* Sign Up Link */}
             <p className="signup-text">
