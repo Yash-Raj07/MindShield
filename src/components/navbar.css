@@ -46,9 +46,31 @@
     margin: 0;
 }
 
+/* .heading {
+    text-decoration: none;
+} */
 .heading {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
 }
+
+.heading img {
+    width: 2rem; 
+    height: 2rem; 
+    object-fit: contain; 
+}
+
+.title {
+    font-size: 16px; 
+    color: rgb(59, 61, 65);
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
 
 .link {
     font-size: 14px;
@@ -96,9 +118,8 @@
 .login-user-feature-container > .link:hover {
     text-decoration: none;
     cursor: pointer;
-    background: linear-gradient(to right, #67C3F3, #5A98F2);
+    background: #FF8852;
     border-radius: 5px;
 
     /*transform: scale(1.05);*/
 }
-

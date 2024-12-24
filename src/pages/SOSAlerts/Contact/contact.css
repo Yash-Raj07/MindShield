@@ -76,7 +76,7 @@
 .add-contact-btn {
     padding: 10px 20px;
     font-size: 16px;
-    background: #1e90ff;
+    background: #FF8852;
     color: white;
     border: none;
     border-radius: 5px;
@@ -85,7 +85,7 @@
 }
 
 .add-contact-btn:hover {
-    background: #005cbf;
+    background: #FF8852;
 }
 
 /* Popup Styles */
@@ -134,8 +134,8 @@
 }
 
 .input-field:focus {
-    border-color: #1e90ff;
-    box-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
+    border-color: #FF8852;
+    box-shadow: 0 0 5px #792701;
 }
 
 .button-group {
@@ -156,12 +156,12 @@
 }
 
 .save-btn {
-    background: #1e90ff;
+    background: #FF8852;
     color: white;
 }
 
 .save-btn:hover {
-    background: #005cbf;
+    background: #FF8852;
 }
 
 .cancel-btn {

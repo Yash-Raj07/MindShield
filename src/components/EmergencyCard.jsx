@@ -1,6 +1,6 @@
 
 import "./EmergencyCard.css"
-const EmergencyCard = ({image, name, color}) => {
+const EmergencyCard = ({image, name, color, contact}) => {
     return (
         <div className="emergency-card">
             <div className="emergency-card-image" style={{ background: color }}>
@@ -8,6 +8,7 @@ const EmergencyCard = ({image, name, color}) => {
             </div>
             <div className="emergency-card-content">
                 <p>{name}</p>
+                <p>{contact}</p>
             </div>
         </div>
     );

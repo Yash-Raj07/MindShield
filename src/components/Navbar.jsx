@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import logo from "/Logo.svg"
 
 const Navbar = () => {
     const [user, setUser] = useState(null); // State to store logged-in user
@@ -20,6 +21,7 @@ const Navbar = () => {
             <div className="navbar-container">
                 <nav className="navbar">
                     <Link className="heading" to="/">
+                        <img src={logo} alt={"Logo Image"}/>
                         <h3 className="title">ShieldMe</h3>
                     </Link>
 

@@ -58,13 +58,13 @@
 
 .logout-button:hover {
     cursor: pointer;
-    background: linear-gradient(to right, #67C3F3, #5A98F2);
+    background: radial-gradient( #FFAD59 0%, #FF7E7B 100%);
 }
 
 .edit-profile-button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #FF8852;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -72,5 +72,5 @@
 }
 
 .edit-profile-button:hover {
-    background-color: #0056b3;
+    background-color: #FF8852;
 }

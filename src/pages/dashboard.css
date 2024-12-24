@@ -212,14 +212,14 @@
     font-weight: normal;
     margin-top: 1rem;
     transition: .6s;
-    background-color: #333;
+    background-color: #FF8852;
     color: white;
 
 }
 .dashboard-container > .dashboard-hero-section-container > .dashboard-left-container > a:hover {
     text-decoration: none;
     cursor: pointer;
-    background: linear-gradient(to right, #67C3F3, #5A98F2);
+    background: #fe621a;
 }
 
 
