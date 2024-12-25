@@ -4,9 +4,9 @@ export function TeamCard() {
     const teamMembers = [
         {
             quote:
-                "Accomplished the development of the Journal feature backend, ensuring seamless data management and retrieval.",
+                "Accomplished the development of the Journal feature backend, ensuring seamless data management and retrieval. Implemented Forgot Password feature and contributed for Website frontend ",
             name: "Harinee",
-            designation: "Java Developer",
+            designation: "Software Developer",
             src: "harinee_profile.jpg",
         },
         {

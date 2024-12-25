@@ -100,7 +100,7 @@
 .publish-button {
     display: inline-block;
     margin-top: 10px;
-    background-color: #007bff;
+    background-color: #FF8852;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -111,5 +111,5 @@
 }
 
 .publish-button:hover {
-    background-color: #0056b3;
+    background-color: #ff7433;
 }

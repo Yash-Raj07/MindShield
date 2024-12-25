@@ -150,12 +150,12 @@ const Dashboard = () => {
                 <div className="dashboard-emergency-container">
                     <h1>Whats your emergency?</h1>
                     <div className="emergency-list-container">
-                        <EmergencyCard image={Medical} name={"Medical"} color={"#DBE790"}/>
-                        <EmergencyCard image={Fire} name={"Fire"} color={"#F5A6A6"}/>
-                        <EmergencyCard image={Disaster} name={"Natural Disaster"} color={"#A6F5D4"}/>
-                        <EmergencyCard image={Accident} name={"Accident"} color={"#D4CEFA"}/>
-                        <EmergencyCard image={Violence} name={"Violence"} color={"#F5A6DF"}/>
-                        <EmergencyCard image={Rescue} name={"Rescue"} color={"#F5E8A6"}/>
+                    <EmergencyCard image={Medical} name={"Medical"} color={"#DBE790"} contact={"911"} />
+                    <EmergencyCard image={Fire} name={"Fire"} color={"#F5A6A6"} contact={"101"} />
+                    <EmergencyCard image={Disaster} name={"Natural Disaster"} color={"#A6F5D4"} contact={"112"} />
+                    <EmergencyCard image={Accident} name={"Accident"} color={"#D4CEFA"} contact={"108"} />
+                    <EmergencyCard image={Violence} name={"Violence"} color={"#F5A6DF"} contact={"109"} />
+                    <EmergencyCard image={Rescue} name={"Rescue"} color={"#F5E8A6"} contact={"104"} />
                     </div>
                 </div>
 

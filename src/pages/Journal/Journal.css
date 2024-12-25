@@ -22,13 +22,13 @@
     margin: 2rem auto;
     padding: 12px 19px;
     border-radius: 5px;
-    background: linear-gradient(to right, #67C3F3, #5A98F2);
+    background: radial-gradient( #FFAD59 0%, #FF7E7B 100%);
     font-weight: 600;
     font-size: 1rem;
 }
 .write-journal-btn:hover{
     cursor: pointer;
-    background: linear-gradient(to right, #479dca, #4884d6);
+    background: radial-gradient( #FFAD59 0%, #FF7E7B 100%);
     color: var(--black);
 }
 
