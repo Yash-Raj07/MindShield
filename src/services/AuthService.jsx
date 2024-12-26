@@ -24,3 +24,9 @@ export const resetPasswordWithToken = async (token, newPassword) => {
     const response = await axios.post(`${API_URL}/resetPassword/${token}`, { newPassword });
     return response.data;
 }
+
+// Validate Token function
+export const validateToken = async (token) => {
+    const response = await axios.get(`${API_URL}/validateToken/${token}`);
+    return response.data;
+};

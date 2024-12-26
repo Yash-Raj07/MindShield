@@ -28,9 +28,32 @@ const ShlokBanner = () => {
     // Conditionally render content only when `shlok` is not null
     if (!shlok) {
         return (
-            <div className="loading">
-                Loading Shlok...
+            <div className="ThirdComp">
+            <div className="bg">
+            <img src="src/assets/mental-health-wellbeing-5-pwmuuh4ttx6aqfhxeaziaj18coc31oxnd95cs7i940.png" alt="bg" width="693" height="598" />
             </div>
+            <div className='content'>
+              <h2>मनो दर्पणसदृशं, शुद्धं ध्यानेन शुद्ध्यति।
+अशुद्धं कामसङ्कल्पैः, सोऽहमिति च धारणा।।</h2>
+<br />
+<br /><br />
+<p>(हिन्दी अनुवाद)</p>
+<h4>
+
+मन दर्पण के समान है, ध्यान से यह शुद्ध होता है।
+यह कामनाओं और गलत विचारों से अशुद्ध हो सकता है।
+</h4>
+<br /><br /><br />
+<p>(English Translation)</p>
+<h4>
+The mind is like a mirror; it becomes pure through meditation.
+It can be tainted by desires and impure thoughts.</h4>
+<br /><br />
+              
+      
+              <button className="button" >Learn More</button>
+            </div>
+          </div>
         );
     }
 
